@@ -2,7 +2,9 @@ package com.shop_online.vo;
 
 import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.shop_online.converter.GenderConverter;
+import com.shop_online.utils.DateUtils;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -34,6 +36,9 @@ public class UserVO {
     private String profession;
     @Schema(description = "生日")
     @ExcelProperty(value = "生日", index = 6)
+    @JsonFormat(pattern = DateUtils.DATE_PATTERN)
     private LocalDateTime birthday;
-
+    @Schema(description = "头像")
+    @ExcelProperty(value = "头像", index = 7)
+    private String avatar;
 }
